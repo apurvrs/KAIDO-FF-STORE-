@@ -727,3 +727,51 @@ grid-template-columns:1fr;
     transform:scale(1.05);
 
 }
+
+
+/* ===========================
+   CATEGORIES
+=========================== */
+
+.categories{
+    width:90%;
+    max-width:1300px;
+    margin:120px auto;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.category-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:35px 25px;
+    text-align:center;
+    transition:.35s;
+}
+
+.category-card:hover{
+    transform:translateY(-10px);
+    border-color:#06B6D4;
+    box-shadow:0 0 35px rgba(6,182,212,.35);
+}
+
+.category-card .icon{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.category-card h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.category-card p{
+    color:#bfbfbf;
+    line-height:1.6;
+}
