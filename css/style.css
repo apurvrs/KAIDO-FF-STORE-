@@ -330,3 +330,85 @@ display:none;
 }
 
 }
+
+/* ===========================
+   LOADER
+=========================== */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#07070A;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:.8s;
+}
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+}
+
+.loader-logo{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#8B5CF6;
+
+    margin-bottom:35px;
+
+}
+
+.loader-bar{
+
+    width:260px;
+
+    height:7px;
+
+    background:#1b1b1b;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.loader-bar span{
+
+    display:block;
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#8B5CF6,#06B6D4);
+
+    animation:loading 2s linear forwards;
+
+}
+
+@keyframes loading{
+
+100%{
+
+width:100%;
+
+}
+
+}
