@@ -911,3 +911,83 @@ grid-template-columns:1fr;
     color:#cfcfcf;
     line-height:1.7;
 }
+
+/* CTA */
+
+.cta{
+    width:90%;
+    max-width:1200px;
+    margin:120px auto;
+    text-align:center;
+    padding:70px 40px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#8B5CF6,#06B6D4);
+}
+
+.cta h2{
+    font-size:46px;
+    margin-bottom:20px;
+}
+
+.cta p{
+    margin-bottom:35px;
+    font-size:18px;
+}
+
+/* FAQ */
+
+.faq{
+    width:90%;
+    max-width:1000px;
+    margin:120px auto;
+}
+
+.faq-container details{
+    margin-bottom:18px;
+    background:#111827;
+    border-radius:16px;
+    padding:20px;
+}
+
+.faq-container summary{
+    cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+}
+
+.faq-container p{
+    margin-top:15px;
+    color:#cfcfcf;
+}
+
+/* Footer */
+
+footer{
+    margin-top:120px;
+    padding:60px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer h2{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.footer-links{
+    margin:30px 0;
+}
+
+.footer-links a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+}
+
+.footer-links a:hover{
+    color:#06B6D4;
+}
+
+.copyright{
+    color:#888;
+}
