@@ -775,3 +775,88 @@ grid-template-columns:1fr;
     color:#bfbfbf;
     line-height:1.6;
 }
+
+/* ===========================
+   FEATURES
+=========================== */
+
+.features{
+
+    width:90%;
+    max-width:1300px;
+    margin:120px auto;
+
+}
+
+.features-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+
+}
+
+.feature-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:0 0 35px rgba(139,92,246,.35);
+
+}
+
+.feature-icon{
+
+    width:80px;
+    height:80px;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#8B5CF6,#06B6D4);
+
+}
+
+.feature-card h3{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+.feature-card p{
+
+    color:#bdbdbd;
+
+    line-height:1.7;
+
+}
