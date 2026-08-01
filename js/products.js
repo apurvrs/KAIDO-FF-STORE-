@@ -10,7 +10,7 @@ const products = [
     {
         id: 1,
         name: "Elite ID",
-        category: "Elite",
+        category: "elite",
         price: 2999,
         image: "images/products/id1.jpg",
         level: "63",
@@ -27,7 +27,7 @@ const products = [
         image: "images/products/id2.jpg",
         level: "66",
         details: "Legendary Bundle • Op Skins • Rare Items",
-        badge: "TOP PRODUCT"
+        badge: "BEST"
     },
 
 
