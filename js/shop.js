@@ -1,72 +1,271 @@
-const productGrid = document.getElementById("product-grid");
-const searchInput = document.getElementById("search");
-const filterSelect = document.getElementById("filter");
+/* ==========================================================
+   KAIDO FF STORE
+   shop.js
+   Shop Functionality
+========================================================== */
 
-function displayProducts(items) {
 
-    productGrid.innerHTML = "";
+document.addEventListener("DOMContentLoaded", () => {
 
-    items.forEach(product => {
 
-        productGrid.innerHTML += `
-        <div class="product-card">
+    const productContainer =
+        document.getElementById("productContainer");
 
-            <img src="${product.image}" alt="${product.name}">
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+
+    const sortSelect =
+        document.getElementById("sortSelect");
+
+
+
+    let currentProducts = [...products];
+
+
+
+    /* ==========================
+       DISPLAY PRODUCTS
+    ========================== */
+
+
+    function displayProducts(items){
+
+
+        if(!productContainer) return;
+
+
+        productContainer.innerHTML = "";
+
+
+        items.forEach(product => {
+
+
+            const card = document.createElement("div");
+
+
+            card.className =
+            "product-card fade-up";
+
+
+
+            card.innerHTML = `
+
+            <span class="product-tag ${product.badge.toLowerCase()}">
+                ${product.badge}
+            </span>
+
+
+            <img src="${product.image}"
+            alt="${product.name}">
+
+
+            <div class="product-info">
+
 
             <h3>${product.name}</h3>
 
-            <p>Level ${product.level}</p>
 
-            <div class="price">₹${product.price}</div>
+            <p>
+            Level ${product.level}
+            <br>
+            ${product.details}
+            </p>
 
-            <button class="buy-product"
-            onclick="viewProduct(${product.id})">
-                View Details
-            </button>
 
-        </div>
-        `;
+            <div class="price-row">
 
-    });
 
-}
+            <span class="price">
+            ₹${product.price}
+            </span>
 
-displayProducts(products);
 
-searchInput.addEventListener("input", () => {
+            <a href="#" class="buy-btn">
+            Buy Now
+            </a>
 
-    const value = searchInput.value.toLowerCase();
 
-    const filtered = products.filter(product =>
-        product.name.toLowerCase().includes(value)
-    );
+            </div>
 
-    displayProducts(filtered);
 
-});
+            </div>
 
-filterSelect.addEventListener("change", () => {
+            `;
 
-    const category = filterSelect.value;
 
-    if(category === "all"){
+            productContainer.appendChild(card);
 
-        displayProducts(products);
 
-        return;
+        });
+
 
     }
 
-    const filtered = products.filter(product =>
-        product.category === category
-    );
 
-    displayProducts(filtered);
+
+    displayProducts(currentProducts);
+
+
+
+    /* ==========================
+       SEARCH
+    ========================== */
+
+
+    if(searchInput){
+
+
+        searchInput.addEventListener("input", () => {
+
+
+            const value =
+            searchInput.value.toLowerCase();
+
+
+
+            currentProducts =
+            products.filter(product =>
+
+                product.name
+                .toLowerCase()
+                .includes(value)
+
+            );
+
+
+
+            displayProducts(currentProducts);
+
+
+        });
+
+
+    }
+
+
+
+    /* ==========================
+       CATEGORY FILTER
+    ========================== */
+
+
+    filterButtons.forEach(button => {
+
+
+        button.addEventListener("click", () => {
+
+
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+
+            button.classList.add("active");
+
+
+
+            const filter =
+            button.dataset.filter;
+
+
+
+            if(filter === "all"){
+
+
+                currentProducts =
+                [...products];
+
+
+            }
+            else{
+
+
+                currentProducts =
+                products.filter(product =>
+                    product.category === filter
+                );
+
+
+            }
+
+
+
+            displayProducts(currentProducts);
+
+
+        });
+
+
+    });
+
+
+
+    /* ==========================
+       SORTING
+    ========================== */
+
+
+    if(sortSelect){
+
+
+        sortSelect.addEventListener("change", () => {
+
+
+
+            const value =
+            sortSelect.value;
+
+
+
+            if(value === "low"){
+
+
+                currentProducts.sort(
+                    (a,b)=>a.price-b.price
+                );
+
+
+            }
+
+
+            else if(value === "high"){
+
+
+                currentProducts.sort(
+                    (a,b)=>b.price-a.price
+                );
+
+
+            }
+
+
+            else{
+
+
+                currentProducts =
+                [...products];
+
+
+            }
+
+
+
+            displayProducts(currentProducts);
+
+
+
+        });
+
+
+    }
+
+
 
 });
-
-function viewProduct(id){
-
-    window.location.href = `product.html?id=${id}`;
-
-}
