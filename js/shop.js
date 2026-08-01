@@ -30,86 +30,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================
-       DISPLAY PRODUCTS
-    ========================== */
+   DISPLAY PRODUCTS
+========================== */
+
+function displayProducts(items){
 
 
-    function displayProducts(items){
+    if(!productContainer) return;
 
 
-        if(!productContainer) return;
+    productContainer.innerHTML = "";
 
 
-        productContainer.innerHTML = "";
+    items.forEach(product => {
 
 
-        items.forEach(product => {
+        const card = document.createElement("div");
 
 
-            const card = document.createElement("div");
+        card.className =
+        "product-card fade-up";
 
 
-            card.className =
-            "product-card fade-up";
+        card.innerHTML = `
+
+        <span class="product-tag ${product.badge.toLowerCase()}">
+            ${product.badge}
+        </span>
 
 
-
-            card.innerHTML = `
-
-            <span class="product-tag ${product.badge.toLowerCase()}">
-                ${product.badge}
-            </span>
+        <img src="${product.image}"
+        alt="${product.name}">
 
 
-            <img src="${product.image}"
-            alt="${product.name}">
+        <div class="product-info">
 
 
-            <div class="product-info">
+        <h3>${product.name}</h3>
 
 
-            <h3>${product.name}</h3>
+        <p>
+        Level ${product.level}
+        <br>
+        ${product.details}
+        </p>
 
 
-            <p>
-            Level ${product.level}
-            <br>
-            ${product.details}
-            </p>
+        <div class="price-row">
 
 
-            <div class="price-row">
+        <span class="price">
+        ₹${product.price}
+        </span>
 
 
-            <span class="price">
-            ₹${product.price}
-            </span>
+        <a 
+        href="product.html?id=${product.id}" 
+        class="buy-btn">
+
+        View Details
+
+        </a>
 
 
-            <a href="#" class="buy-btn">
-            Buy Now
-            </a>
+        </div>
 
 
-            </div>
+        </div>
+
+        `;
 
 
-            </div>
-
-            `;
+        productContainer.appendChild(card);
 
 
-            productContainer.appendChild(card);
+    });
 
 
-        });
-
-
-    }
-
-
-
-    displayProducts(currentProducts);
+}
 
 
 
