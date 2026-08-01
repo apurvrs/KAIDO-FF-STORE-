@@ -84,8 +84,7 @@ products.find(item => item.id == id);
 
     if(productPrice){
 
-        productPrice.textContent =
-        product.price;
+        productPrice.textContent = `₹${product.price.toLocaleString("en-IN")}`;
 
     }
 
