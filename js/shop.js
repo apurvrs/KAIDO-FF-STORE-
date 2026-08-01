@@ -25,7 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    let currentProducts = [...products];
+    const adminProducts =
+    JSON.parse(localStorage.getItem("kaidoProducts")) || [];
+
+const allProducts = [...products, ...adminProducts];
+
+let currentProducts = [...allProducts];
 
 
 
