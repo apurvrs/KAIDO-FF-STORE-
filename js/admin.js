@@ -110,6 +110,7 @@ function loadDashboard(){
     });
 
 }
+   loadDashboard();
 
     form.addEventListener("submit",(e)=>{
 
@@ -204,7 +205,7 @@ function loadDashboard(){
 
         form.reset();
 
-
+     loadDashboard();
 
     });
 
