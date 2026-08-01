@@ -128,7 +128,7 @@ function loadDashboard(){
 
 });
 
-   
+    });
 
 }
    loadDashboard();
