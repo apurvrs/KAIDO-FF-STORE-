@@ -1,63 +1,117 @@
-const params = new URLSearchParams(window.location.search);
+/* ==========================================================
+   KAIDO FF STORE
+   product.js
+   Dynamic Product Details
+========================================================== */
 
-const id = Number(params.get("id"));
 
-const product = products.find(item => item.id === id);
+document.addEventListener("DOMContentLoaded", () => {
 
-const container = document.getElementById("product-details");
 
-if(product){
+    const productImage =
+        document.getElementById("productImage");
 
-container.innerHTML = `
 
-<div class="product-container">
+    const productName =
+        document.getElementById("productName");
 
-<img src="${product.image}">
 
-<div class="product-info">
+    const productPrice =
+        document.getElementById("productPrice");
 
-<h1>${product.name}</h1>
 
-<p>${product.description}</p>
+    const productDescription =
+        document.getElementById("productDescription");
 
-<p><strong>Category:</strong> ${product.category}</p>
 
-<p><strong>Level:</strong> ${product.level}</p>
+    const productBadge =
+        document.getElementById("productBadge");
 
-<div class="price">
 
-₹${product.price}
 
-</div>
+    /*
+       Get Product ID From URL
 
-<div class="buttons">
+       Example:
+       product.html?id=5
+    */
 
-<button class="buy">Buy Now</button>
+    const params =
+    new URLSearchParams(window.location.search);
 
-<button class="cart" onclick="addToCart(${product.id})">
-Add to Cart
-</button>
 
-</div>
+    const id =
+    Number(params.get("id")) || 1;
 
-</div>
 
-</div>
 
-`;
+    const product =
+    products.find(item => item.id === id);
 
-}
 
-function addToCart(id){
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if(!product){
 
-const product = products.find(p => p.id === id);
+        console.log("Product not found");
 
-cart.push(product);
+        return;
 
-localStorage.setItem("cart", JSON.stringify(cart));
+    }
 
-alert("Added to Cart!");
 
-}
+
+    // Update Page Data
+
+
+    if(productImage){
+
+        productImage.src = product.image;
+
+        productImage.alt = product.name;
+
+    }
+
+
+
+    if(productName){
+
+        productName.textContent =
+        product.name;
+
+    }
+
+
+
+    if(productPrice){
+
+        productPrice.textContent =
+        product.price;
+
+    }
+
+
+
+    if(productDescription){
+
+        productDescription.textContent =
+
+        `Level ${product.level} Account • ${product.details}`;
+
+    }
+
+
+
+    if(productBadge){
+
+        productBadge.textContent =
+        product.badge;
+
+
+        productBadge.className =
+        `product-tag ${product.badge.toLowerCase()}`;
+
+    }
+
+
+
+});
