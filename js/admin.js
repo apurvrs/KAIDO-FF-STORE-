@@ -31,8 +31,9 @@ document.getElementById("totalOrders");
 function loadDashboard(){
 
     const allProducts = [
-        ...products
-    ];
+    ...products,
+    ...(JSON.parse(localStorage.getItem("kaidoProducts")) || [])
+];
 
     const orders =
     JSON.parse(
