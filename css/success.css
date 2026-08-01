@@ -1,0 +1,255 @@
+/* ==========================================================
+   KAIDO FF STORE
+   success.css
+   PART 7E
+========================================================== */
+
+.success-page{
+
+    width:min(92%,1200px);
+
+    min-height:calc(100vh - 100px);
+
+    margin:120px auto 60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.success-card{
+
+    width:100%;
+
+    max-width:700px;
+
+    padding:60px 40px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* ==========================
+   TOP GLOW
+========================== */
+
+.success-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        circle,
+
+        rgba(34,197,94,.25),
+
+        transparent 70%
+
+    );
+
+    top:-180px;
+
+    left:-120px;
+
+    filter:blur(45px);
+
+}
+
+/* ==========================
+   SUCCESS ICON
+========================== */
+
+.success-icon{
+
+    width:120px;
+
+    height:120px;
+
+    margin:0 auto 30px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #22c55e,
+
+        #16a34a
+
+    );
+
+    color:#fff;
+
+    font-size:4rem;
+
+    box-shadow:0 20px 50px rgba(34,197,94,.35);
+
+    animation:pop .8s ease;
+
+}
+
+.success-card h1{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:clamp(2rem,5vw,3rem);
+
+    margin-bottom:20px;
+
+}
+
+.success-card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    max-width:520px;
+
+    margin:0 auto 35px;
+
+}
+
+/* ==========================
+   ORDER BOX
+========================== */
+
+.order-info{
+
+    margin:35px auto;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.order-info p{
+
+    margin-bottom:10px;
+
+}
+
+.order-info h2{
+
+    color:var(--accent);
+
+    font-family:"Orbitron",sans-serif;
+
+    letter-spacing:2px;
+
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.success-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-top:40px;
+
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(.5);
+
+        opacity:0;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .success-card{
+
+        padding:40px 25px;
+
+    }
+
+    .success-icon{
+
+        width:95px;
+
+        height:95px;
+
+        font-size:3rem;
+
+    }
+
+    .success-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .success-buttons a{
+
+        width:100%;
+
+    }
+
+}
