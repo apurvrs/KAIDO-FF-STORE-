@@ -15,7 +15,101 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     if(!form) return;
 
+/* ==========================
+   DASHBOARD
+========================== */
 
+const productList =
+document.getElementById("adminProductList");
+
+const totalProducts =
+document.getElementById("totalProducts");
+
+const totalOrders =
+document.getElementById("totalOrders");
+
+function loadDashboard(){
+
+    const allProducts = [
+        ...products
+    ];
+
+    const orders =
+    JSON.parse(
+        localStorage.getItem("kaidoOrders")
+    ) || [];
+
+    totalProducts.textContent =
+    allProducts.length;
+
+    totalOrders.textContent =
+    orders.length;
+
+    productList.innerHTML = "";
+
+    allProducts.forEach(product=>{
+
+        const card =
+        document.createElement("div");
+
+        card.className =
+        "admin-product";
+
+        card.innerHTML = `
+
+        <div class="product-left">
+
+            <img
+            src="${product.image}"
+            alt="${product.name}">
+
+            <div class="product-details">
+
+                <h3>${product.name}</h3>
+
+                <p>
+
+                    ₹${product.price}
+
+                </p>
+
+                <p>
+
+                    Level ${product.level}
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="admin-actions">
+
+            <button
+            class="edit-btn"
+            data-id="${product.id}">
+
+                Edit
+
+            </button>
+
+            <button
+            class="delete-btn"
+            data-id="${product.id}">
+
+                Delete
+
+            </button>
+
+        </div>
+
+        `;
+
+        productList.appendChild(card);
+
+    });
+
+}
 
     form.addEventListener("submit",(e)=>{
 
