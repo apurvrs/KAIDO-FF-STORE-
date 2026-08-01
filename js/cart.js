@@ -71,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 saveCart();
 
-alert("Added to Cart 🔥");
+showToast("Product added to cart 🛒");
            
             else{
 
-                alert("Already in Cart");
+                showToast("Already in cart","warning");
 
             }
 
@@ -292,6 +292,7 @@ if(cart.length === 0){
             }
 
             saveCart();
+           showToast("Product removed","error");
             displayCart();
 
         }
