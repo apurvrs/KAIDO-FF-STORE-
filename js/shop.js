@@ -25,12 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const adminProducts =
-    JSON.parse(localStorage.getItem("kaidoProducts")) || [];
-
-const allProducts = [...products, ...adminProducts];
-
-let currentProducts = [...allProducts];
+    let currentProducts = [...products];
 
 
 
@@ -133,7 +128,7 @@ function displayProducts(items){
 
 
             currentProducts =
-            allproducts.filter(product =>
+            products.filter(product =>
 
                 product.name
                 .toLowerCase()
@@ -183,7 +178,7 @@ function displayProducts(items){
 
 
                 currentProducts =
-                [...allproducts];
+                [...products];
 
 
             }
@@ -191,7 +186,7 @@ function displayProducts(items){
 
 
                 currentProducts =
-                allproducts.filter(product =>
+                products.filter(product =>
                     product.category === filter
                 );
 
@@ -253,7 +248,7 @@ function displayProducts(items){
 
 
                 currentProducts =
-                [...allproducts];
+                [...products];
 
 
             }
