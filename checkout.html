@@ -4,66 +4,185 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checkout | FFMarket</title>
+<title>KAIDO FF STORE | Checkout</title>
+
 
 <link rel="stylesheet" href="css/style.css">
+
 <link rel="stylesheet" href="css/checkout.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
+
 <body>
+
+
+<div class="aurora">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
 
 <header class="navbar">
 
-<div class="logo">🔥 FFMarket</div>
 
-<a href="cart.html" class="buy-btn">
-Back to Cart
+<div class="logo">
+
+<i class="fa-solid fa-fire"></i>
+
+KAIDO FF STORE
+
+</div>
+
+
+<nav>
+
+<a href="index.html">
+Home
 </a>
+
+<a href="shop.html">
+Shop
+</a>
+
+<a href="cart.html">
+Cart
+</a>
+
+</nav>
+
 
 </header>
 
-<section class="checkout">
 
-<div class="checkout-left">
 
-<h2>Billing Details</h2>
 
-<form id="checkout-form">
+<section class="checkout-section">
 
-<input type="text" placeholder="Full Name" required>
 
-<input type="email" placeholder="Email Address" required>
 
-<input type="tel" placeholder="Phone Number" required>
+<div class="checkout-box">
 
-<textarea placeholder="Additional Notes"></textarea>
 
-<button type="submit" class="btn-primary">
+<h1>
+Complete Your Order
+</h1>
+
+
+
+<form id="orderForm">
+
+
+<input 
+type="text"
+id="customerName"
+placeholder="Your Name"
+required>
+
+
+<input 
+type="tel"
+id="phone"
+placeholder="WhatsApp Number"
+required>
+
+
+
+<input 
+type="text"
+id="ffUid"
+placeholder="Free Fire UID"
+required>
+
+
+
+<select id="payment">
+
+<option>
+Select Payment Method
+</option>
+
+<option>
+UPI
+</option>
+
+<option>
+Bank Transfer
+</option>
+
+</select>
+
+
+
+<button 
+type="submit"
+class="primary-btn">
+
 Place Order
+
 </button>
+
+
 
 </form>
 
+
 </div>
 
-<div class="checkout-right">
 
-<h2>Order Summary</h2>
 
-<div id="order-items"></div>
 
-<h3>Total:
-<span id="order-total">₹0</span>
+
+<div class="order-summary">
+
+
+<h2>
+Order Summary
+</h2>
+
+
+<div id="checkoutItems">
+
+</div>
+
+
+
+<h3>
+
+Total:
+₹<span id="checkoutTotal">
+0
+</span>
+
 </h3>
 
+
 </div>
+
+
 
 </section>
 
+
+
+
+
+<script src="js/products.js"></script>
+
 <script src="js/checkout.js"></script>
 
+
 </body>
+
 </html>
