@@ -1769,3 +1769,65 @@ section{
     align-items:center;
 
 }
+
+/* ==========================================================
+   TOAST NOTIFICATION
+========================================================== */
+
+.toast{
+
+    position:fixed;
+
+    top:30px;
+
+    right:30px;
+
+    min-width:280px;
+
+    padding:18px 22px;
+
+    background:rgba(15,18,35,.95);
+
+    border:1px solid rgba(139,92,246,.4);
+
+    border-left:5px solid #8B5CF6;
+
+    color:#fff;
+
+    border-radius:16px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+    transform:translateX(420px);
+
+    transition:.45s;
+
+    z-index:9999;
+
+}
+
+.toast.show{
+
+    transform:translateX(0);
+
+}
+
+.toast.success{
+
+    border-left-color:#22c55e;
+
+}
+
+.toast.error{
+
+    border-left-color:#ef4444;
+
+}
+
+.toast.warning{
+
+    border-left-color:#f59e0b;
+
+}
