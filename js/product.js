@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const product =
-    products.find(item => item.id === id);
+products.find(item => item.id == id);
 
 
 
