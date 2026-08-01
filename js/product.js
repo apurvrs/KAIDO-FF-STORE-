@@ -34,7 +34,9 @@ container.innerHTML = `
 
 <button class="buy">Buy Now</button>
 
-<button class="cart">Add to Cart</button>
+<button class="cart" onclick="addToCart(${product.id})">
+Add to Cart
+</button>
 
 </div>
 
@@ -43,5 +45,19 @@ container.innerHTML = `
 </div>
 
 `;
+
+}
+
+function addToCart(id){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const product = products.find(p => p.id === id);
+
+cart.push(product);
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert("Added to Cart!");
 
 }
