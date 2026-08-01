@@ -109,11 +109,26 @@ function loadDashboard(){
         productList.appendChild(card);
        card.querySelector(".delete-btn").addEventListener("click", () => {
 
-    alert("Delete button clicked!");
+    if (!confirm("Delete this product?")) return;
+
+    let adminProducts = JSON.parse(
+        localStorage.getItem("kaidoProducts")
+    ) || [];
+
+    adminProducts = adminProducts.filter(
+        item => item.id !== product.id
+    );
+
+    localStorage.setItem(
+        "kaidoProducts",
+        JSON.stringify(adminProducts)
+    );
+
+    loadDashboard();
 
 });
 
-    });
+   
 
 }
    loadDashboard();
