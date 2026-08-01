@@ -151,3 +151,17 @@ const products = [
     }
 
 ];
+/* ==========================================================
+   LOAD ADMIN PRODUCTS
+========================================================== */
+
+
+const adminProducts =
+
+JSON.parse(
+    localStorage.getItem("kaidoProducts")
+) || [];
+
+
+
+products.push(...adminProducts);
