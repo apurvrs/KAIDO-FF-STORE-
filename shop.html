@@ -7,76 +7,225 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shop | FFMarket</title>
+<title>KAIDO FF STORE | Premium Free Fire IDs</title>
 
+
+<!-- Main CSS -->
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Shop CSS -->
 <link rel="stylesheet" href="css/shop.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 </head>
 
+
 <body>
+
+
+<!-- =====================
+     BACKGROUND
+===================== -->
+
+<div class="aurora">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+
+<!-- =====================
+     NAVBAR
+===================== -->
 
 <header class="navbar">
 
-<div class="logo">🔥 FFMarket</div>
+
+<div class="logo">
+
+<i class="fa-solid fa-fire"></i>
+
+KAIDO FF STORE
+
+</div>
+
+
 
 <nav>
 
 <a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
+
+<a href="shop.html" class="active">Shop</a>
+
 <a href="#">Categories</a>
+
 <a href="#">Support</a>
 
 </nav>
 
-<a href="cart.html" class="buy-btn">
-<i class="fas fa-shopping-cart"></i>
+
+
+<div class="nav-actions">
+
+<a href="#" class="primary-btn">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
 Cart
+
 </a>
+
+</div>
+
 
 </header>
 
+
+
+<!-- =====================
+     SHOP HERO
+===================== -->
+
+
 <section class="shop-hero">
 
-<h1>Premium Gaming Accounts</h1>
 
-<p>Browse verified accounts with secure delivery.</p>
+<div class="shop-content">
+
+
+<span class="hero-badge">
+
+🔥 Premium Collection
+
+</span>
+
+
+<h1>
+
+Find Your <span>Dream Free Fire ID</span>
+
+</h1>
+
+
+<p>
+
+Explore verified Free Fire accounts with rare skins,
+bundles and legendary items.
+
+</p>
+
+
+</div>
+
 
 </section>
 
-<div class="shop-controls">
+/* =========================
+   SHOP CONTROLS
+========================= */
 
-<input
-type="text"
-id="search"
-placeholder="Search account...">
+<section class="shop-controls">
 
-<select id="filter">
 
-<option value="all">All Categories</option>
+<div class="search-box">
 
-<option>Rare</option>
+<i class="fa-solid fa-magnifying-glass"></i>
 
-<option>Elite</option>
+<input 
+type="text" 
+id="searchInput"
+placeholder="Search Free Fire ID..."
+>
 
-<option>Budget</option>
+</div>
+
+
+
+<div class="filter-area">
+
+
+<button class="filter-btn active" data-filter="all">
+
+All IDs
+
+</button>
+
+
+<button class="filter-btn" data-filter="legendary">
+
+Legendary
+
+</button>
+
+
+<button class="filter-btn" data-filter="rare">
+
+Rare Skins
+
+</button>
+
+
+<button class="filter-btn" data-filter="budget">
+
+Budget
+
+</button>
+
+
+<button class="filter-btn" data-filter="premium">
+
+Premium
+
+</button>
+
+
+</div>
+
+
+
+<div class="sort-area">
+
+
+<label>
+
+Sort By:
+
+</label>
+
+
+<select id="sortSelect">
+
+<option value="default">
+Featured
+</option>
+
+
+<option value="low">
+Price Low → High
+</option>
+
+
+<option value="high">
+Price High → Low
+</option>
+
 
 </select>
 
-</div>
-
-<div id="product-grid" class="products">
 
 </div>
 
-<script src="js/products.js"></script>
 
-<script src="js/shop.js"></script>
+
+</section>
+
 
 </body>
 
