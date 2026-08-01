@@ -1,70 +1,255 @@
-.cart-page{
-padding:160px 8%;
+/* ==========================================================
+   KAIDO FF STORE
+   cart.css
+   Cart Page Styling
+========================================================== */
+
+
+/* ==========================
+   CART SECTION
+========================== */
+
+.cart-section{
+
+    width:min(92%,1100px);
+
+    margin:160px auto 80px;
 
 }
+
+
+.cart-section > h1{
+
+    text-align:center;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:3rem;
+
+    margin-bottom:50px;
+
+}
+
+
+/* ==========================
+   CART ITEMS
+========================== */
+
+#cartContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
 
 .cart-item{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    gap:25px;
 
-background:#111827;
+    padding:25px;
 
-padding:20px;
+    border-radius:25px;
 
-margin-bottom:20px;
+    background:rgba(255,255,255,.05);
 
-border-radius:20px;
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.35s;
 
 }
+
+
+.cart-item:hover{
+
+    transform:translateY(-5px);
+
+    border-color:rgba(139,92,246,.4);
+
+}
+
+
+/* Product Image */
 
 .cart-item img{
 
-width:120px;
+    width:120px;
 
-border-radius:15px;
+    height:120px;
 
-}
+    object-fit:cover;
 
-.cart-info{
-
-flex:1;
-
-padding:0 20px;
+    border-radius:18px;
 
 }
 
-.remove{
 
-background:#ff4d4d;
 
-color:white;
+.cart-item h3{
 
-border:none;
+    font-size:1.3rem;
 
-padding:10px 20px;
-
-border-radius:10px;
-
-cursor:pointer;
+    margin-bottom:10px;
 
 }
 
-.cart-total{
 
-margin-top:50px;
 
-text-align:right;
+.cart-item p{
+
+    color:var(--accent);
+
+    font-size:1.2rem;
+
+    font-weight:700;
 
 }
 
-.cart-total h2{
 
-font-size:36px;
 
-margin-bottom:25px;
+/* ==========================
+   REMOVE BUTTON
+========================== */
+
+
+.remove-btn{
+
+    margin-left:auto;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.remove-btn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 10px 30px rgba(239,68,68,.35);
+
+}
+
+
+
+/* ==========================
+   CART SUMMARY
+========================== */
+
+
+.cart-summary{
+
+    margin-top:50px;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+}
+
+
+.cart-summary h2{
+
+    font-size:2rem;
+
+    margin-bottom:30px;
+
+}
+
+
+.cart-summary h2 span{
+
+    color:var(--accent);
+
+}
+
+
+
+/* ==========================
+   EMPTY CART
+========================== */
+
+
+.empty-cart{
+
+    text-align:center;
+
+    padding:50px;
+
+    color:var(--text-light);
+
+}
+
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+
+@media(max-width:700px){
+
+
+    .cart-section{
+
+        margin-top:130px;
+
+    }
+
+
+    .cart-section > h1{
+
+        font-size:2.2rem;
+
+    }
+
+
+    .cart-item{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+
+    .remove-btn{
+
+        margin:auto;
+
+        width:100%;
+
+    }
+
 
 }
