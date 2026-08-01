@@ -1016,3 +1016,460 @@
         font-size:2rem;
     }
 }
+
+/* ==========================================================
+   KAIDO FF STORE
+   STYLE.CSS - PART 4A
+   Testimonials
+========================================================== */
+
+/* ==========================
+   TESTIMONIALS
+========================== */
+
+.testimonials{
+    padding:120px 0;
+    position:relative;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+    margin-top:50px;
+}
+
+.testimonial-card{
+    position:relative;
+    padding:35px 30px;
+    text-align:center;
+    border-radius:24px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    overflow:hidden;
+    transition:.35s ease;
+}
+
+.testimonial-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--accent)
+    );
+}
+
+.testimonial-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(139,92,246,.45);
+    box-shadow:0 25px 60px rgba(139,92,246,.20);
+}
+
+.testimonial-card img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:0 auto 20px;
+    border:3px solid rgba(139,92,246,.45);
+    box-shadow:0 10px 25px rgba(139,92,246,.25);
+}
+
+.testimonial-card h3{
+    font-size:1.3rem;
+    margin-bottom:10px;
+    color:#fff;
+}
+
+.stars{
+    color:#FFD700;
+    font-size:1.1rem;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.testimonial-card p{
+    color:var(--text-light);
+    line-height:1.8;
+    font-size:.98rem;
+}
+
+/* Floating quote icon */
+
+.testimonial-card::after{
+    content:"❝";
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:3rem;
+    color:rgba(139,92,246,.18);
+    font-family:serif;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:768px){
+
+    .testimonial-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .testimonial-card{
+        padding:28px 22px;
+    }
+
+    .testimonial-card img{
+        width:75px;
+        height:75px;
+    }
+
+    .testimonial-card h3{
+        font-size:1.15rem;
+    }
+
+}
+/* ==========================================================
+   KAIDO FF STORE
+   STYLE.CSS - PART 4B
+   FAQ + CTA
+==========================================================*/
+
+/* ==========================
+   FAQ SECTION
+========================== */
+
+.faq{
+    padding:120px 0;
+}
+
+.faq-container{
+    max-width:900px;
+    margin:60px auto 0;
+}
+
+.faq-container details{
+    margin-bottom:20px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.35s ease;
+}
+
+.faq-container details:hover{
+    border-color:rgba(139,92,246,.4);
+    box-shadow:0 15px 35px rgba(139,92,246,.18);
+}
+
+.faq-container summary{
+    padding:22px 28px;
+    cursor:pointer;
+    font-size:1.08rem;
+    font-weight:600;
+    list-style:none;
+    position:relative;
+}
+
+.faq-container summary::-webkit-details-marker{
+    display:none;
+}
+
+.faq-container summary::after{
+    content:"+";
+    position:absolute;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:1.4rem;
+    color:var(--accent);
+    transition:.3s;
+}
+
+.faq-container details[open] summary::after{
+    content:"−";
+}
+
+.faq-container details p{
+    padding:0 28px 24px;
+    color:var(--text-light);
+    line-height:1.8;
+}
+
+/* ==========================
+   CALL TO ACTION
+========================== */
+
+.cta{
+    position:relative;
+    text-align:center;
+    padding:100px 40px;
+    margin:120px auto;
+    border-radius:30px;
+    background:linear-gradient(
+        135deg,
+        rgba(139,92,246,.18),
+        rgba(6,182,212,.12)
+    );
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    overflow:hidden;
+}
+
+.cta::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(139,92,246,.25),
+        transparent 70%
+    );
+    top:-180px;
+    left:-120px;
+    filter:blur(40px);
+}
+
+.cta h2{
+    position:relative;
+    font-family:"Orbitron",sans-serif;
+    font-size:clamp(2rem,5vw,3.2rem);
+    margin-bottom:20px;
+}
+
+.cta p{
+    position:relative;
+    max-width:650px;
+    margin:0 auto 35px;
+    color:var(--text-light);
+    line-height:1.8;
+}
+
+.cta .primary-btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:220px;
+}
+
+/* ==========================
+   CTA ANIMATION
+========================== */
+
+.cta{
+    animation:ctaGlow 6s ease-in-out infinite;
+}
+
+@keyframes ctaGlow{
+
+    0%,100%{
+        box-shadow:0 0 25px rgba(139,92,246,.18);
+    }
+
+    50%{
+        box-shadow:
+        0 0 45px rgba(139,92,246,.35),
+        0 0 80px rgba(6,182,212,.18);
+    }
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:768px){
+
+    .faq-container summary{
+        font-size:1rem;
+        padding:18px 20px;
+    }
+
+    .faq-container details p{
+        padding:0 20px 20px;
+    }
+
+    .cta{
+        padding:70px 25px;
+        margin:90px auto;
+    }
+
+    .cta .primary-btn{
+        width:100%;
+        max-width:260px;
+    }
+
+}
+
+/* ==========================================================
+   KAIDO FF STORE
+   STYLE.CSS - PART 4C
+   Footer + Final Responsive
+========================================================== */
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer{
+    padding:80px 0 30px;
+    background:#040611;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-content{
+    width:min(92%,1400px);
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-brand h2{
+    font-family:"Orbitron",sans-serif;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.footer-brand i{
+    color:var(--primary);
+    margin-right:10px;
+}
+
+.footer-brand p{
+    color:var(--text-light);
+    line-height:1.8;
+    max-width:420px;
+}
+
+.footer-links h3,
+.footer-social h3{
+    margin-bottom:20px;
+    font-size:1.2rem;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+}
+
+.footer-links a{
+    color:var(--text-light);
+    margin-bottom:14px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--primary);
+    transform:translateX(6px);
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.social-icons a{
+    width:48px;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.35s;
+}
+
+.social-icons a:hover{
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    transform:translateY(-5px);
+}
+
+.footer-bottom{
+    margin-top:60px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+
+.footer-bottom p{
+    color:var(--text-light);
+}
+
+/* ==========================
+   GENERAL FADE ANIMATION
+========================== */
+
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1000px){
+
+    .footer-content{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .footer-content{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .footer-brand p{
+        margin:auto;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .footer{
+        padding:60px 0 20px;
+    }
+
+    .footer-brand h2{
+        font-size:1.6rem;
+    }
+
+    .social-icons a{
+        width:42px;
+        height:42px;
+    }
+
+}
