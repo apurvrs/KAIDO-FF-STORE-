@@ -133,7 +133,7 @@ function displayProducts(items){
 
 
             currentProducts =
-            products.filter(product =>
+            allproducts.filter(product =>
 
                 product.name
                 .toLowerCase()
@@ -183,7 +183,7 @@ function displayProducts(items){
 
 
                 currentProducts =
-                [...products];
+                [...allproducts];
 
 
             }
@@ -191,7 +191,7 @@ function displayProducts(items){
 
 
                 currentProducts =
-                products.filter(product =>
+                allproducts.filter(product =>
                     product.category === filter
                 );
 
@@ -253,7 +253,7 @@ function displayProducts(items){
 
 
                 currentProducts =
-                [...products];
+                [...allproducts];
 
 
             }
