@@ -1,57 +1,226 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+/* ==========================================================
+   KAIDO FF STORE
+   cart.js
+   Cart System
+========================================================== */
 
-const container = document.getElementById("cart-items");
-const total = document.getElementById("total-price");
 
-function renderCart(){
+document.addEventListener("DOMContentLoaded", () => {
 
-container.innerHTML="";
 
-let totalPrice=0;
+    let cart = JSON.parse(localStorage.getItem("kaidoCart")) || [];
 
-cart.forEach((item,index)=>{
 
-totalPrice += item.price;
 
-container.innerHTML += `
+    const cartContainer =
+    document.getElementById("cartContainer");
 
-<div class="cart-item">
 
-<img src="${item.image}">
+    const cartTotal =
+    document.getElementById("cartTotal");
 
-<div class="cart-info">
 
-<h3>${item.name}</h3>
 
-<p>₹${item.price}</p>
+    /* ==========================
+       ADD TO CART
+    ========================== */
 
-</div>
 
-<button class="remove"
-onclick="removeItem(${index})">
+    const addButton =
+    document.getElementById("addToCart");
 
-Remove
 
-</button>
 
-</div>
+    if(addButton){
 
-`;
+
+        const params =
+        new URLSearchParams(window.location.search);
+
+
+        const id =
+        Number(params.get("id")) || 1;
+
+
+
+        const product =
+        products.find(item => item.id === id);
+
+
+
+        addButton.addEventListener("click",()=>{
+
+
+            const exists =
+            cart.find(item => item.id === product.id);
+
+
+
+            if(!exists){
+
+                cart.push(product);
+
+                saveCart();
+
+                alert("Added to Cart 🔥");
+
+            }
+            else{
+
+                alert("Already in Cart");
+
+            }
+
+
+        });
+
+
+    }
+
+
+
+    /* ==========================
+       SAVE CART
+    ========================== */
+
+
+    function saveCart(){
+
+        localStorage.setItem(
+            "kaidoCart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+
+    /* ==========================
+       DISPLAY CART
+    ========================== */
+
+
+    function displayCart(){
+
+
+        if(!cartContainer) return;
+
+
+
+        cartContainer.innerHTML = "";
+
+
+
+        let total = 0;
+
+
+
+        cart.forEach(product => {
+
+
+
+            total += product.price;
+
+
+
+            const item =
+            document.createElement("div");
+
+
+            item.className =
+            "cart-item";
+
+
+
+            item.innerHTML = `
+
+            <img src="${product.image}">
+
+
+            <div>
+
+            <h3>
+            ${product.name}
+            </h3>
+
+
+            <p>
+            ₹${product.price}
+            </p>
+
+
+            </div>
+
+
+
+            <button
+            class="remove-btn"
+            data-id="${product.id}">
+
+            Remove
+
+            </button>
+
+
+            `;
+
+
+
+            cartContainer.appendChild(item);
+
+
+
+        });
+
+
+
+        if(cartTotal){
+
+            cartTotal.textContent = total;
+
+        }
+
+
+
+    }
+
+
+
+    /* ==========================
+       REMOVE ITEM
+    ========================== */
+
+
+    document.addEventListener("click",(e)=>{
+
+
+        if(e.target.classList.contains("remove-btn")){
+
+
+            const id =
+            Number(e.target.dataset.id);
+
+
+
+            cart =
+            cart.filter(item => item.id !== id);
+
+
+
+            saveCart();
+
+            displayCart();
+
+
+        }
+
+
+    });
+
+
+
+    displayCart();
+
 
 });
 
-total.innerText="₹"+totalPrice;
-
-}
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-localStorage.setItem("cart",JSON.stringify(cart));
-
-renderCart();
-
-}
-
-renderCart();
