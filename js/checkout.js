@@ -1,222 +1,133 @@
 /* ==========================================================
    KAIDO FF STORE
    checkout.js
-   Checkout Functionality
+   PART 7C
 ========================================================== */
-
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-
-    let cart =
-    JSON.parse(localStorage.getItem("kaidoCart")) || [];
-
-
+    const cart =
+    JSON.parse(
+        localStorage.getItem("kaidoCart")
+    ) || [];
 
     const checkoutItems =
     document.getElementById("checkoutItems");
 
-
     const checkoutTotal =
     document.getElementById("checkoutTotal");
 
+    const form =
+    document.getElementById("checkoutForm");
 
+    let total = 0;
 
     /* ==========================
-       LOAD ORDER SUMMARY
+       DISPLAY ITEMS
     ========================== */
 
+    if(checkoutItems){
 
-    function loadCheckout(){
-
-
-        if(!checkoutItems) return;
-
-
-        checkoutItems.innerHTML="";
-
-
-        let total = 0;
-
-
+        checkoutItems.innerHTML = "";
 
         cart.forEach(product=>{
 
+            const quantity =
+            product.quantity || 1;
 
-            total += product.price;
-
-
+            total +=
+            product.price * quantity;
 
             const item =
             document.createElement("div");
 
-
             item.className =
-            "checkout-product";
-
-
+            "summary-item";
 
             item.innerHTML = `
 
-            <img src="${product.image}">
+                <span>
 
+                    ${product.name}
 
-            <div>
+                    × ${quantity}
 
-            <h3>
-            ${product.name}
-            </h3>
+                </span>
 
+                <span>
 
-            <p>
-            ₹${product.price}
-            </p>
+                    ₹${(product.price * quantity).toLocaleString("en-IN")}
 
-
-            </div>
+                </span>
 
             `;
 
-
-
             checkoutItems.appendChild(item);
-
-
 
         });
 
-
-
-        if(checkoutTotal){
-
-            checkoutTotal.textContent =
-            total;
-
-        }
-
-
     }
 
+    if(checkoutTotal){
 
+        checkoutTotal.textContent =
+        "₹" + total.toLocaleString("en-IN");
 
-    loadCheckout();
-
-
-
-
+    }
 
     /* ==========================
        PLACE ORDER
     ========================== */
 
+    if(form){
 
-    const orderForm =
-    document.getElementById("orderForm");
-
-
-
-    if(orderForm){
-
-
-        orderForm.addEventListener("submit",(e)=>{
-
+        form.addEventListener("submit",(e)=>{
 
             e.preventDefault();
 
+            const order = {
 
+                orderId:
+                "KF" + Date.now(),
 
-            const name =
-            document.getElementById("customerName").value;
+                customer:document.getElementById("customerName").value,
 
+                email:document.getElementById("customerEmail").value,
 
-            const phone =
-            document.getElementById("phone").value;
+                phone:document.getElementById("customerPhone").value,
 
+                address:document.getElementById("customerAddress").value,
 
-            const uid =
-            document.getElementById("ffUid").value;
+                payment:
+                document.getElementById("paymentMethod").value,
 
+                products:cart,
 
-            const payment =
-            document.getElementById("payment").value;
+                total:total,
 
+                date:new Date().toLocaleString()
 
+            };
 
-            let orderText =
+            let orders =
+            JSON.parse(
+                localStorage.getItem("kaidoOrders")
+            ) || [];
 
-`🔥 KAIDO FF STORE ORDER
+            orders.push(order);
 
-👤 Name:
-${name}
-
-📱 WhatsApp:
-${phone}
-
-🎮 Free Fire UID:
-${uid}
-
-💳 Payment:
-${payment}
-
-
-🛒 Products:
-`;
-
-
-
-            cart.forEach(product=>{
-
-                orderText +=
-
-`\n• ${product.name}
-₹${product.price}
-`;
-
-            });
-
-
-
-            const total =
-            cart.reduce(
-                (sum,item)=>sum+item.price,
-                0
+            localStorage.setItem(
+                "kaidoOrders",
+                JSON.stringify(orders)
             );
-
-
-
-            orderText +=
-
-`\n💰 Total:
-₹${total}`;
-
-
-
-            const whatsappNumber =
-            "919152120074";
-
-
-
-            const url =
-
-`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(orderText)}`;
-
-
-
-            window.open(url,"_blank");
-
-
-
-            // Clear cart
 
             localStorage.removeItem("kaidoCart");
 
-
+            window.location.href =
+            "success.html";
 
         });
 
-
     }
-
-
 
 });
