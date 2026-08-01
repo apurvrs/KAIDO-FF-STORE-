@@ -1732,3 +1732,40 @@ section{
     }
 
 }
+/* ==========================
+   CART BADGE
+========================== */
+
+.icon-btn{
+    position:relative;
+}
+
+#cartCount{
+
+    position:absolute;
+
+    top:-8px;
+
+    right:-8px;
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:#ff3b5c;
+
+    color:#fff;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
