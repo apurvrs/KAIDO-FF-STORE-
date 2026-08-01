@@ -1,4 +1,263 @@
 /* ==========================================================
+   KAIDO FF STORE
+   STYLE.CSS - PART 1
+   Global Styles + Navbar + Background
+========================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================
+   ROOT VARIABLES
+========================== */
+
+:root{
+    --primary:#8B5CF6;
+    --secondary:#7C3AED;
+    --accent:#06B6D4;
+
+    --bg:#050816;
+    --bg2:#0A1023;
+
+    --text:#ffffff;
+    --text-light:#b8bfd3;
+
+    --glass:rgba(255,255,255,.06);
+    --border:rgba(255,255,255,.08);
+
+    --shadow:0 20px 50px rgba(0,0,0,.30);
+}
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--text);
+    overflow-x:hidden;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#090b18;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--primary),var(--accent));
+    border-radius:20px;
+}
+
+/* ==========================
+   CURSOR
+========================== */
+
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:rgba(6,182,212,.35);
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    filter:blur(10px);
+    z-index:9999;
+}
+
+/* ==========================
+   AURORA BACKGROUND
+========================== */
+
+.aurora{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.aurora span{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.28;
+}
+
+.aurora span:nth-child(1){
+    background:#8B5CF6;
+    top:-150px;
+    left:-120px;
+}
+
+.aurora span:nth-child(2){
+    background:#06B6D4;
+    right:-120px;
+    top:150px;
+}
+
+.aurora span:nth-child(3){
+    background:#3B82F6;
+    bottom:-150px;
+    left:35%;
+}
+
+/* ==========================
+   PARTICLES
+========================== */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.particles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:.3;
+}
+
+.particles span:nth-child(1){top:10%;left:12%;}
+.particles span:nth-child(2){top:25%;left:78%;}
+.particles span:nth-child(3){top:42%;left:55%;}
+.particles span:nth-child(4){top:68%;left:22%;}
+.particles span:nth-child(5){top:82%;left:88%;}
+.particles span:nth-child(6){top:60%;left:72%;}
+.particles span:nth-child(7){top:16%;left:45%;}
+.particles span:nth-child(8){top:90%;left:35%;}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(5,8,22,.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:"Orbitron",sans-serif;
+    font-size:1.3rem;
+    font-weight:700;
+}
+
+.logo i{
+    color:var(--primary);
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    color:#fff;
+    transition:.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.icon-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.icon-btn:hover{
+    background:var(--primary);
+}
+
+.shop-btn{
+    padding:13px 28px;
+    border-radius:40px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+}
+
+.shop-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 35px rgba(139,92,246,.4);
+}
+
+/* ==========================
+   COMMON SECTION
+========================== */
+
+section{
+    width:min(92%,1400px);
+    margin:auto;
+}
+/* ==========================================================
    HERO SECTION - PART 2A
 ========================================================== */
 
