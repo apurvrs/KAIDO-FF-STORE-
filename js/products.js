@@ -9,11 +9,11 @@ const products = [
 
     {
         id: 1,
-        name: "Legendary Dragon ID",
-        category: "legendary",
-        price: 4999,
+        name: "Elite ID",
+        category: "Elite",
+        price: 2999,
         image: "images/products/id1.jpg",
-        level: "75",
+        level: "63",
         details: "Evo Guns • Rare Bundles • Premium Skins",
         badge: "HOT"
     },
@@ -23,11 +23,11 @@ const products = [
         id: 2,
         name: "Premium Max ID",
         category: "premium",
-        price: 3999,
+        price: 29999,
         image: "images/products/id2.jpg",
-        level: "70",
-        details: "Elite Pass • Legendary Skins • Rare Items",
-        badge: "BEST"
+        level: "66",
+        details: "Legendary Bundle • Op Skins • Rare Items",
+        badge: "TOP PRODUCT"
     },
 
 
