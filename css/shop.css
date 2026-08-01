@@ -1,74 +1,878 @@
+/* ==========================================================
+   KAIDO FF STORE
+   shop.css - PART 1
+   Shop Hero + Controls Foundation
+========================================================== */
+
+
+/* ==========================
+   SHOP HERO
+========================== */
+
 .shop-hero{
 
-    padding:170px 20px 70px;
+    min-height:70vh;
 
-    text-align:center;
+    width:min(92%,1400px);
 
-}
+    margin:auto;
 
-.shop-hero h1{
-
-    font-size:56px;
-
-    margin-bottom:15px;
-
-}
-
-.shop-hero p{
-
-    color:#bdbdbd;
-
-}
-
-.shop-controls{
-
-    width:90%;
-
-    max-width:1200px;
-
-    margin:40px auto;
+    padding-top:170px;
 
     display:flex;
 
-    gap:20px;
+    align-items:center;
 
     justify-content:center;
 
-    flex-wrap:wrap;
+    text-align:center;
+
+    position:relative;
 
 }
 
-.shop-controls input,
-.shop-controls select{
 
-    padding:15px 20px;
+.shop-content{
+
+    max-width:850px;
+
+}
+
+
+.shop-content h1{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:clamp(2.8rem,6vw,5rem);
+
+    line-height:1.1;
+
+    margin:25px 0;
+
+    text-transform:uppercase;
+
+}
+
+
+.shop-content h1 span{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+.shop-content p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--text-light);
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================
+   SHOP HERO GLOW
+========================== */
+
+
+.shop-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:radial-gradient(
+        circle,
+        rgba(139,92,246,.25),
+        transparent 70%
+    );
+
+    filter:blur(50px);
+
+    z-index:-1;
+
+}
+
+
+/* ==========================
+   SHOP CONTROLS
+========================== */
+
+
+.shop-controls{
+
+    width:min(92%,1400px);
+
+    margin:40px auto;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+}
+
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    max-width:650px;
+
+    margin:0 auto 30px;
+
+    padding:16px 22px;
+
+    border-radius:50px;
+
+    background:rgba(0,0,0,.25);
+
+    border:1px solid rgba(255,255,255,.1);
+
+}
+
+
+.search-box i{
+
+    color:var(--accent);
+
+    font-size:1.2rem;
+
+}
+
+
+.search-box input{
+
+    width:100%;
 
     border:none;
 
     outline:none;
 
-    border-radius:12px;
+    background:transparent;
 
-    background:#161616;
+    color:#fff;
 
-    color:white;
-
-    min-width:260px;
+    font-size:1rem;
 
 }
 
-.products{
 
-    width:90%;
+.search-box input::placeholder{
 
-    max-width:1300px;
+    color:#94A3B8;
 
-    margin:60px auto 120px;
+}
+
+
+/* ==========================
+   FILTER BUTTONS
+========================== */
+
+
+.filter-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.filter-btn{
+
+    padding:12px 25px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    color:var(--text-light);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+
+.filter-btn:hover,
+.filter-btn.active{
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    box-shadow:0 10px 30px rgba(139,92,246,.3);
+
+}
+
+
+/* ==========================
+   SORT AREA
+========================== */
+
+
+.sort-area{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.sort-area label{
+
+    color:var(--text-light);
+
+}
+
+
+.sort-area select{
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    background:#0d1326;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    outline:none;
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+    .shop-hero{
+
+        padding-top:130px;
+
+        min-height:60vh;
+
+    }
+
+
+    .shop-controls{
+
+        padding:20px;
+
+    }
+
+
+    .sort-area{
+
+        flex-direction:column;
+
+    }
+
+
+    .sort-area select{
+
+        width:100%;
+
+    }
+
+}
+/* ==========================================================
+   KAIDO FF STORE
+   shop.css - PART 2
+   Product Marketplace Styling
+========================================================== */
+
+
+/* ==========================
+   PRODUCTS SECTION
+========================== */
+
+.products-section{
+
+    width:min(92%,1400px);
+
+    margin:auto;
+
+    padding:100px 0;
+
+}
+
+
+/* ==========================
+   PRODUCT GRID
+========================== */
+
+.products-section .product-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
 
-    gap:30px;
+    gap:35px;
+
+}
+
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+
+.products-section .product-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:.4s ease;
+
+}
+
+
+.products-section .product-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:rgba(6,182,212,.45);
+
+    box-shadow:
+    0 25px 60px rgba(6,182,212,.20);
+
+}
+
+
+/* ==========================
+   PRODUCT IMAGE
+========================== */
+
+.products-section .product-card img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+
+.products-section .product-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================
+   PRODUCT BADGE
+========================== */
+
+.products-section .product-tag{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    z-index:2;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+}
+
+
+.products-section .hot{
+
+    background:linear-gradient(
+        135deg,
+        #ff4d4d,
+        #ff7a18
+    );
+
+}
+
+
+.products-section .best{
+
+    background:linear-gradient(
+        135deg,
+        #FFD700,
+        #F59E0B
+    );
+
+    color:#111;
+
+}
+
+
+.products-section .new{
+
+    background:linear-gradient(
+        135deg,
+        #3B82F6,
+        #06B6D4
+    );
+
+}
+
+
+/* ==========================
+   PRODUCT INFO
+========================== */
+
+.products-section .product-info{
+
+    padding:25px;
+
+}
+
+
+.products-section .product-info h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:12px;
+
+}
+
+
+.products-section .product-info p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+
+/* ==========================
+   PRICE + BUY
+========================== */
+
+.products-section .price-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.products-section .price{
+
+    color:var(--accent);
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+}
+
+
+.products-section .buy-btn{
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+
+.products-section .buy-btn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 15px 35px rgba(139,92,246,.4);
+
+}
+
+
+/* ==========================
+   PRODUCT GLOW
+========================== */
+
+.products-section .product-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    top:-100px;
+
+    right:-80px;
+
+    background:radial-gradient(
+        circle,
+        rgba(139,92,246,.25),
+        transparent 70%
+    );
+
+    filter:blur(40px);
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+
+.products-section .product-card:hover::before{
+
+    opacity:1;
+
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+    .products-section{
+
+        padding:70px 0;
+
+    }
+
+
+    .products-section .product-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .products-section .product-card img{
+
+        height:240px;
+
+    }
+
+
+    .products-section .price{
+
+        font-size:1.3rem;
+
+    }
+
+}
+
+/* ==========================================================
+   KAIDO FF STORE
+   shop.css - PART 3
+   Pagination + CTA + Final Polish
+========================================================== */
+
+
+/* ==========================
+   PAGINATION
+========================== */
+
+.pagination-section{
+
+    width:min(92%,1400px);
+
+    margin:auto;
+
+    padding:40px 0 80px;
+
+}
+
+
+.pagination{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.page-btn{
+
+    min-width:45px;
+
+    height:45px;
+
+    padding:0 18px;
+
+    border-radius:50px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.page-btn:hover,
+.page-btn.active{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    box-shadow:
+    0 10px 30px rgba(139,92,246,.35);
+
+}
+
+
+.page-btn.next{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+/* ==========================
+   SHOP CTA
+========================== */
+
+
+.shop-page .cta,
+.cta{
+
+    width:min(92%,1200px);
+
+}
+
+
+/* ==========================
+   FOOTER FIXES
+========================== */
+
+
+.footer{
+
+    margin-top:50px;
+
+}
+
+
+/* ==========================
+   ACTIVE NAV LINK
+========================== */
+
+
+.navbar nav a.active{
+
+    color:#fff;
+
+    position:relative;
+
+}
+
+
+.navbar nav a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--accent)
+    );
+
+}
+
+
+/* ==========================
+   SHOP PAGE ANIMATION
+========================== */
+
+
+.products-section,
+.shop-controls,
+.pagination-section{
+
+    animation:shopFade .8s ease both;
+
+}
+
+
+@keyframes shopFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================
+   RESPONSIVE FINAL
+========================== */
+
+
+@media(max-width:600px){
+
+    .pagination{
+
+        gap:8px;
+
+    }
+
+
+    .page-btn{
+
+        min-width:40px;
+
+        height:40px;
+
+        padding:0 14px;
+
+        font-size:.9rem;
+
+    }
+
+
+    .page-btn.next{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
 
 }
