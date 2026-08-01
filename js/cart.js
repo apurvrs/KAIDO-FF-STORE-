@@ -201,34 +201,221 @@ alert("Added to Cart 🔥");
 
     document.addEventListener("click",(e)=>{
 
+    const id =
+    Number(e.target.dataset.id);
 
-        if(e.target.classList.contains("remove-btn")){
+    if(e.target.classList.contains("remove-btn")){
 
+        cart = cart.filter(
+            item => item.id !== id
+        );
 
-            const id =
-            Number(e.target.dataset.id);
+        saveCart();
+        displayCart();
 
+    }
 
+    if(e.target.classList.contains("increase")){
 
-            cart =
-            cart.filter(item => item.id !== id);
+        const item =
+        cart.find(p=>p.id===id);
 
+        if(item){
 
+            item.quantity++;
 
             saveCart();
-
             displayCart();
-
 
         }
 
+    }
 
-    });
+    if(e.target.classList.contains("decrease")){
 
+        const item =
+        cart.find(p=>p.id===id);
 
+        if(item){
 
-    displayCart();
+            item.quantity--;
 
+            if(item.quantity<=0){
+
+                cart = cart.filter(
+                    p=>p.id!==id
+                );
+
+            }
+
+            saveCart();
+            displayCart();
+
+        }
+
+    }
 
 });
+   /* ==========================================================
+   KAIDO FF STORE
+   CART.CSS - PART 3
+   Cart Summary + Empty Cart
+========================================================== */
+
+/* ==========================
+   CART ITEM
+========================== */
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+}
+
+.cart-item img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:16px;
+}
+
+.cart-details{
+    flex:1;
+}
+
+.cart-details h3{
+    margin-bottom:10px;
+}
+
+.cart-details p{
+    color:var(--accent);
+    font-size:1.1rem;
+    margin-bottom:15px;
+}
+
+/* ==========================
+   QUANTITY
+========================== */
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.qty-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:1.2rem;
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    transition:.3s;
+}
+
+.qty-btn:hover{
+    transform:scale(1.08);
+}
+
+/* ==========================
+   REMOVE BUTTON
+========================== */
+
+.remove-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    color:#fff;
+    background:#ff3b5c;
+    transition:.3s;
+}
+
+.remove-btn:hover{
+    transform:scale(1.08);
+}
+
+/* ==========================
+   CART SUMMARY
+========================== */
+
+.cart-summary{
+    margin-top:40px;
+    padding:30px;
+    border-radius:24px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.cart-summary h2{
+    margin-bottom:20px;
+}
+
+.total-price{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:1.5rem;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:700;
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    transition:.35s;
+}
+
+.checkout-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ==========================
+   EMPTY CART
+========================== */
+
+.empty-cart{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.empty-cart i{
+    font-size:5rem;
+    color:var(--accent);
+    margin-bottom:20px;
+}
+
+.empty-cart h2{
+    margin-bottom:15px;
+}
+
+.empty-cart p{
+    color:var(--text-light);
+    margin-bottom:30px;
+}
 
