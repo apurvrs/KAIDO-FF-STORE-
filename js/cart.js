@@ -117,7 +117,50 @@ alert("Added to Cart 🔥");
 
         cartContainer.innerHTML = "";
 
+if(cart.length === 0){
 
+    cartContainer.innerHTML = `
+
+    <div class="empty-cart">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <h2>Your Cart is Empty</h2>
+
+        <p>
+            Looks like you haven't added any Free Fire IDs yet.
+        </p>
+
+        <a href="shop.html" class="primary-btn">
+
+            Browse Products
+
+        </a>
+
+    </div>
+
+    `;
+
+    if(cartTotal){
+
+        cartTotal.textContent = "₹0";
+
+    }
+
+    const finalTotal =
+    document.getElementById("finalTotal");
+
+    if(finalTotal){
+
+        finalTotal.textContent = "₹0";
+
+    }
+
+    updateCartCount();
+
+    return;
+
+}
 
         let total = 0;
 
@@ -419,3 +462,29 @@ alert("Added to Cart 🔥");
     margin-bottom:30px;
 }
 
+/* ==========================
+   CART COUNT
+========================== */
+
+function updateCartCount(){
+
+    const badge =
+    document.getElementById("cartCount");
+
+    if(!badge) return;
+
+    let total = 0;
+
+    cart.forEach(item=>{
+
+        total += item.quantity || 1;
+
+    });
+
+    badge.textContent = total;
+
+}
+displayCart();
+
+updateCartCount();
+});
