@@ -488,3 +488,49 @@ displayCart();
 
 updateCartCount();
 });
+
+/* ==========================
+   TOAST
+========================== */
+
+function showToast(message,type="success"){
+
+    let toast =
+    document.querySelector(".toast");
+
+    if(toast){
+
+        toast.remove();
+
+    }
+
+    toast =
+    document.createElement("div");
+
+    toast.className =
+    `toast ${type}`;
+
+    toast.textContent =
+    message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(()=>{
+
+        toast.classList.add("show");
+
+    },100);
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+        setTimeout(()=>{
+
+            toast.remove();
+
+        },400);
+
+    },2500);
+
+}
