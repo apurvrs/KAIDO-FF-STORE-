@@ -106,6 +106,11 @@ function loadDashboard(){
         `;
 
         productList.appendChild(card);
+       card.querySelector(".delete-btn").addEventListener("click", () => {
+
+    alert("Delete button clicked!");
+
+});
 
     });
 
