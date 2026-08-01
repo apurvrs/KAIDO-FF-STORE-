@@ -192,7 +192,7 @@ ${payment}
 
 
             const whatsappNumber =
-            "YOUR_WHATSAPP_NUMBER";
+            "919152120074";
 
 
 
