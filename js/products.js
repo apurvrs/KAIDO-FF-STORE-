@@ -156,12 +156,4 @@ const products = [
 ========================================================== */
 
 
-const adminProducts =
 
-JSON.parse(
-    localStorage.getItem("kaidoProducts")
-) || [];
-
-
-
-products.push(...adminProducts);
