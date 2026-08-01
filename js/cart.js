@@ -56,15 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            if(!exists){
+            if (exists) {
 
-                cart.push(product);
+    exists.quantity = (exists.quantity || 1) + 1;
 
-                saveCart();
+} else {
 
-                alert("Added to Cart 🔥");
+    cart.push({
+        ...product,
+        quantity: 1
+    });
 
-            }
+}
+
+saveCart();
+
+alert("Added to Cart 🔥");
+           
             else{
 
                 alert("Already in Cart");
@@ -119,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            total += product.price;
+            total += product.price * (product.quantity || 1);
 
 
 
@@ -145,8 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             <p>
-            ₹${product.price}
-            </p>
+₹${product.price} × ${product.quantity || 1}
+</p>
 
 
             </div>
