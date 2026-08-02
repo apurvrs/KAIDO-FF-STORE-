@@ -235,6 +235,7 @@ return;
 
         adminProducts.push(newProduct);
 
+       
     });
 
 
