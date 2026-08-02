@@ -171,9 +171,7 @@ function loadDashboard(){
 
 
 
-            image:
-
-            document.getElementById("image").value,
+            image: "",
 
 
 
@@ -201,32 +199,41 @@ function loadDashboard(){
 
 
         };
+       
+        const imageFile = document.getElementById("image").files[0];
 
+if (!imageFile) {
+    alert("Please select an image.");
+    return;
+}
+
+const reader = new FileReader();
+
+reader.onload = function () {
+
+    newProduct.image = reader.result;
+
+    adminProducts.push(newProduct);
+
+    localStorage.setItem(
+        "kaidoProducts",
+        JSON.stringify(adminProducts)
+    );
+
+    alert("Product Added Successfully 🔥");
+
+    form.reset();
+
+    loadDashboard();
+
+};
+
+reader.readAsDataURL(imageFile);
+
+return;
 
 
         adminProducts.push(newProduct);
-
-
-
-        localStorage.setItem(
-
-            "kaidoProducts",
-
-            JSON.stringify(adminProducts)
-
-        );
-
-
-
-        alert(
-            "Product Added Successfully 🔥"
-        );
-
-
-
-        form.reset();
-
-     loadDashboard();
 
     });
 
