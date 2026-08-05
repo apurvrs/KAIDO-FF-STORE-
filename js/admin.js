@@ -287,6 +287,7 @@ reader.onload = function () {
     alert("Product Added Successfully 🔥");
 
     form.reset();
+   
    imagePreview.src = "";
 imagePreview.style.display = "none";
 
