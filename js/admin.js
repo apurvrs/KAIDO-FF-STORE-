@@ -11,8 +11,30 @@ document.addEventListener("DOMContentLoaded",()=>{
     const form =
     document.getElementById("productForm");
 
+const imageInput =
+document.getElementById("image");
 
+const imagePreview =
+document.getElementById("imagePreview");
+imageInput.addEventListener("change", () => {
 
+    const file = imageInput.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+
+        imagePreview.src = reader.result;
+
+        imagePreview.style.display = "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
     if(!form) return;
 
 /* ==========================
@@ -223,6 +245,8 @@ reader.onload = function () {
     alert("Product Added Successfully 🔥");
 
     form.reset();
+   imagePreview.src = "";
+imagePreview.style.display = "none";
 
     loadDashboard();
 
