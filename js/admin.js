@@ -36,7 +36,45 @@ imageInput.addEventListener("change", () => {
 
 });
     if(!form) return;
+   
+const uploadBox =
+document.getElementById("uploadBox");
 
+   uploadBox.addEventListener("click",()=>{
+
+    imageInput.click();
+
+});
+
+   uploadBox.addEventListener("dragover",(e)=>{
+
+    e.preventDefault();
+
+    uploadBox.classList.add("drag");
+
+});
+
+   uploadBox.addEventListener("dragleave",()=>{
+
+    uploadBox.classList.remove("drag");
+
+});
+
+   uploadBox.addEventListener("drop",(e)=>{
+
+    e.preventDefault();
+
+    uploadBox.classList.remove("drag");
+
+    imageInput.files =
+    e.dataTransfer.files;
+
+    imageInput.dispatchEvent(
+        new Event("change")
+    );
+
+});
+   
 /* ==========================
    DASHBOARD
 ========================== */
