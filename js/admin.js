@@ -297,10 +297,7 @@ imagePreview.style.display = "none";
 
 reader.readAsDataURL(imageFile);
 
-return;
 
-
-        adminProducts.push(newProduct);
 
        
     });
