@@ -36,8 +36,7 @@ imageInput.addEventListener("change", () => {
 
 });
     if(!form) return;
-   
-const uploadBox =
+   const uploadBox =
 document.getElementById("uploadBox");
 
    uploadBox.addEventListener("click",()=>{
