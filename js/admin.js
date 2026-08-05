@@ -36,6 +36,7 @@ imageInput.addEventListener("change", () => {
 
 });
     if(!form) return;
+   
    const uploadBox =
 document.getElementById("uploadBox");
 
