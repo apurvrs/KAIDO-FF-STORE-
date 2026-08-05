@@ -302,8 +302,26 @@ return;
         adminProducts.push(newProduct);
 
        
+    
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+if(logoutBtn){
+
+    logoutBtn.addEventListener("click",(e)=>{
+
+        e.preventDefault();
+
+        localStorage.removeItem(
+            "adminLoggedIn"
+        );
+
+        window.location.href =
+        "login.html";
+
     });
 
-
+}
 
 });
