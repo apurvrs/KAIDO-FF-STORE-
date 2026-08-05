@@ -302,7 +302,7 @@ return;
         adminProducts.push(newProduct);
 
        
-    
+    });
 
 const logoutBtn =
 document.getElementById("logoutBtn");
